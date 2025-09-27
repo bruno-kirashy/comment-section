@@ -31,12 +31,12 @@ const App = () => {
 
   return (
     <section className="w-screen h-screen px-2 overflow-x-hidden">
-      <div className="max-w-5xl mx-auto p-5 border border-gray-500/50 rounded-2xl ">
+      <div className="max-w-5xl mx-auto md:p-5 p-2 border border-gray-500/50 md:rounded-2xl md:flex flex-col absolute top-0 bottom-0 left-0 right-0">
         <h1 className="text-2xl mb-5">
           Comentários ({listComments.length})
         </h1>
         <div className="flex border-b border-gray-400/20 pb-5">
-            <div className="mr-5">
+            <div className="md:mr-5 mr-2">
                 <div className="w-10 h-10 border border-green-500 rounded-full overflow-hidden cursor-pointer">
                   <img
                     className="w-full h-full "
@@ -58,7 +58,7 @@ const App = () => {
               </textarea>
               
               <div className={`flex items-between justify-between max-w-5xl ${250 <= comment.length ? 'text-red-500' : 'text-white' }`}>
-                <p>
+                <p className="md:text-[17px] text-[13px]">
                   {250 - comment.length} caracteres restantes.
                 </p>
                 <button  
