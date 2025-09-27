@@ -30,9 +30,9 @@ const App = () => {
   
 
   return (
-    <section className="w-screen h-screen px-2 overflow-x-hidden">
-      <div className="max-w-5xl mx-auto md:p-5 p-2 border border-gray-500/50 md:rounded-2xl md:flex flex-col absolute top-0 bottom-0 left-0 right-0">
-        <h1 className="text-2xl mb-5">
+    <section className="w-full h-full px-2 overflow-x-hidden">
+      <div className="max-w-5xl md:static md:mt-10 mx-auto md:p-5 p-2 md:border md:border-gray-500/50 md:rounded-2xl md:flex flex-col absolute top-0 bottom-0 left-0 right-0">
+        <h1 className="md:text-2xl text-md mb-5">
           Comentários ({listComments.length})
         </h1>
         <div className="flex border-b border-gray-400/20 pb-5">
@@ -48,7 +48,7 @@ const App = () => {
             
             <div className="w-full">
               <textarea 
-              className="w-full border border-gray-500/50 px-2 py-1 rounded-md mb-5 resize-y overflow-y-hidden"
+              className="w-full text-2xl border border-gray-500/50 px-2 py-1 rounded-md mb-5 resize-y overflow-y-hidden"
               placeholder="Adicione um comentário..."
               name="" id="" rows={4} maxLength={250}
               onChange={(e) => {setComment(e.target.value)}}
@@ -57,13 +57,13 @@ const App = () => {
 
               </textarea>
               
-              <div className={`flex items-between justify-between max-w-5xl ${250 <= comment.length ? 'text-red-500' : 'text-white' }`}>
-                <p className="md:text-[17px] text-[13px]">
+              <div className={`flex items-center md:items-start justify-between max-w-5xl ${250 <= comment.length ? 'text-red-500' : 'text-white' }`}>
+                <p className="md:text-[17px] text-[14px]">
                   {250 - comment.length} caracteres restantes.
                 </p>
                 <button  
                 onClick={() => addComments()}
-                className="text-white border border-gray-500/50 rounded-md cursor-pointer hover:bg-gray-800 hover:opacity-85 transition-all duration-300 px-4 py-1 mr-5">
+                className="text-white border border-gray-500/50 rounded-md cursor-pointer hover:bg-gray-800 hover:opacity-85 transition-all duration-300 px-6 py-2 mr-5">
                   
                   Enviar
                 </button>

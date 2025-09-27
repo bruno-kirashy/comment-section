@@ -33,25 +33,25 @@ export const Comments = ({listComments, removeComments}:CommentsProp) => {
                 <div className="w-full">
                 
                 
-                <div className="flex items-between justify-between max-w-5xl">
-                    <h1 className="md:text-[20px] text-[12px] text-gray-400 font-bold cursor-pointer">
+                <div className="flex items-center justify-between max-w-5xl">
+                    <h1 className="md:text-[20px] text-[14px] text-gray-400 font-bold cursor-pointer">
                         BrunoDev
                     </h1>
 
                     <div className="flex">
                         <button 
                         className="rounded-full cursor-pointer md:mr-5 mr-2 hover:text-sky-500">
-                            <Pencil className="w-4 md:w-8  " />
+                            <Pencil className="w-5 md:w-8  " />
                         </button>
                         <button 
                         onClick={() => removeComments(item.id)}
                         className="rounded-full cursor-pointer px-1 py-1 md:mr-5 mr-2 hover:text-red-800/80">
-                            <Trash2 className="w-4 md:w-8" />
+                            <Trash2 className="w-5 md:w-8" />
                         </button>
                     </div>
                 </div>
                     
-                    <p className="md:mt-5  mt-1 min-w-0 max-w-[95%] md:max-w-4xl  break-all text-gray-300">
+                    <p className="md:mt-5  mt-1 min-w-0 max-w-[95%] md:max-w-4xl  break-words text-gray-300">
                         {item.comment}
                     </p>
                     
