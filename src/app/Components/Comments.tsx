@@ -19,7 +19,7 @@ export const Comments = ({listComments, removeComments}:CommentsProp) => {
         {listComments.map((item) => (
             <li 
             key={item.id}
-            className=" flex md:mt-10 mt-2 bg-gray-900 md:p-5 p-2 rounded-md">
+            className=" flex md:mt-4 mt-2 bg-gray-900 md:p-5 p-2 rounded-md">
                 <div className="md:mr-5 mr-2">
                     <div className="w-10 h-10 border border-green-500 rounded-full overflow-hidden cursor-pointer">
                     <img
@@ -51,7 +51,7 @@ export const Comments = ({listComments, removeComments}:CommentsProp) => {
                     </div>
                 </div>
                     
-                    <p className="md:mt-5  mt-1 min-w-0 max-w-[95%] md:max-w-4xl  break-words text-gray-300">
+                    <p className="md:mt-5  mt-1 min-w-0 max-w-[95%] md:max-w-3xl md:break-words  break-all text-gray-300">
                         {item.comment}
                     </p>
                     
