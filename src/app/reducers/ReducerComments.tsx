@@ -7,10 +7,10 @@ type AddComment = {
     }
 }
 
-type RemodeComment = {
+type RemoveComment = {
     type: 'remove',
     payload: {
-        id: string;
+        id: number;
     }
 }
 
@@ -23,7 +23,7 @@ type EditComment = {
 }
 
 
-type ListActions = AddComment | RemodeComment | EditComment;
+type ListActions = AddComment | RemoveComment | EditComment;
 
 export const ReducerComments = (list: listCommentsType[] , action:ListActions) => {
     
@@ -34,7 +34,8 @@ export const ReducerComments = (list: listCommentsType[] , action:ListActions) =
                     comment: action.payload.comment
                 }]
          
-        
+        case 'remove':
+                return list.filter(t => t.id !== action.payload.id);
         
         default:
             return list;

@@ -4,12 +4,13 @@ import { listCommentsType } from "../types/listCommentsType";
 
 type CommentsProp = {
     listComments: listCommentsType[],
+    removeComments: (id:number) => void
 };
 
 
 
 
-export const Comments = ({listComments}:CommentsProp) => {    
+export const Comments = ({listComments, removeComments}:CommentsProp) => {    
     
     
 
@@ -18,7 +19,7 @@ export const Comments = ({listComments}:CommentsProp) => {
         {listComments.map((item) => (
             <li 
             key={item.id}
-            className="flex mt-10 bg-gray-900 p-5 rounded-md ">
+            className=" flex mt-10 bg-gray-900 p-5 rounded-md ">
                 <div className="mr-5">
                     <div className="w-10 h-10 border border-green-500 rounded-full overflow-hidden cursor-pointer">
                     <img
@@ -43,13 +44,14 @@ export const Comments = ({listComments}:CommentsProp) => {
                             <Pencil />
                         </button>
                         <button 
+                        onClick={() => removeComments(item.id)}
                         className="rounded-full cursor-pointer px-1 py-1 mr-5 hover:text-red-800/80">
                             <Trash2 />
                         </button>
                     </div>
                 </div>
 
-                    <p className="mt-5">
+                    <p className="mt-5 max-w-3xl break-words">
                         {item.comment}
                     </p>
 

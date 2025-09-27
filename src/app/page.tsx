@@ -11,14 +11,6 @@ const App = () => {
 
   const [comment, setComment] = useState<string>('');
   const [listComments, dispatch] = useReducer(ReducerComments, []);
-  const [numberCharacters, setNumberCharacters] = useState<number>(250);
-
-  const lockCharacters = () => {
-    if (250 <= comment.length) {
-      
-    }
-  }
-
   
 
   const addComments = () => {
@@ -28,6 +20,12 @@ const App = () => {
             payload: {comment}
         });
         setComment('');
+  }
+  const removeComments = (id:number) => {
+        dispatch({
+          type: 'remove',
+          payload: {id}
+        })
   }
   
 
@@ -53,7 +51,7 @@ const App = () => {
               className="w-full border border-gray-500/50 px-2 py-1 rounded-md mb-5 resize-y overflow-y-hidden"
               placeholder="Adicione um comentário..."
               name="" id="" rows={4} maxLength={250}
-              onChange={(e) => {setComment(e.target.value), lockCharacters()}}
+              onChange={(e) => {setComment(e.target.value)}}
               value={comment}
               >
 
@@ -73,7 +71,7 @@ const App = () => {
             </div>
         </div>
 
-        <Comments listComments={listComments} />
+        <Comments listComments={listComments} removeComments={removeComments} />
       </div>
       
     </section>
