@@ -1,7 +1,16 @@
-
+"use client"
+import { useState } from "react";
 import { Comments } from "./Components/Comments";
+import { ReducerComments } from "./reducers/ReducerComments";
+
+
+
 
 const App = () => {
+
+  const [comment, setComment] = useState<string>('');
+
+
   return (
     <section className="w-screen h-screen px-2">
       <div className="max-w-5xl mx-auto p-5 border border-gray-500/50 rounded-2xl ">
@@ -23,20 +32,26 @@ const App = () => {
               <textarea 
               className="w-full border border-gray-500/50 px-2 py-1 rounded-md mb-5 resize-y overflow-y-hidden"
               placeholder="Adicione um comentário..."
-              name="" id="" rows={4}>
+              name="" id="" rows={4}
+              onChange={(e)=> setComment(e.target.value)}
+              value={comment}
+              >
 
               </textarea>
               
               <div className="flex items-between justify-between max-w-5xl">
                 <p>250 caracteres restantes.</p>
-                <button className="border border-gray-500/50 rounded-md cursor-pointer hover:bg-gray-800 hover:opacity-85 transition-all duration-300 px-4 py-1 mr-5">
+                <button  
+                
+                className="border border-gray-500/50 rounded-md cursor-pointer hover:bg-gray-800 hover:opacity-85 transition-all duration-300 px-4 py-1 mr-5">
+                  
                   Enviar
                 </button>
               </div>
             </div>
         </div>
 
-        <Comments/>
+        <Comments comment={comment}/>
       </div>
       
     </section>
