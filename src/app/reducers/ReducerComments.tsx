@@ -33,6 +33,7 @@ export const ReducerComments = (list: listCommentsType[] , action:ListActions) =
                     id: list.length + 1,
                     comment: action.payload.comment
                 }]
+         
         
         
         default:

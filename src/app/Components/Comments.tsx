@@ -1,24 +1,24 @@
 import { Pencil, Trash2 } from "lucide-react";
 import { useReducer } from "react";
-import { ReducerComments } from "../reducers/ReducerComments";
+import { listCommentsType } from "../types/listCommentsType";
 
 type CommentsProp = {
-    comment: string
+    listComments: listCommentsType[],
 };
 
 
 
 
-export const Comments = (comment:CommentsProp) => {
-
-    const [listComments, dispatch] = useReducer(ReducerComments, []);
-
+export const Comments = ({listComments}:CommentsProp) => {    
+    
     
 
     return (
         <ul>
-        {listComments.map((item, index) => (
-            <li className="flex mt-10 bg-gray-900 p-5 rounded-md ">
+        {listComments.map((item) => (
+            <li 
+            key={item.id}
+            className="flex mt-10 bg-gray-900 p-5 rounded-md ">
                 <div className="mr-5">
                     <div className="w-10 h-10 border border-green-500 rounded-full overflow-hidden cursor-pointer">
                     <img
